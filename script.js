@@ -50,6 +50,7 @@ function mouseover(){
   var viewBtns = document.getElementsByClassName("btn btn-sm btn-success");
   var cards = document.querySelectorAll(".card");
   for (let i = 0; i < viewBtns.length; i++) {
+    cards[i].style.transform = "scale(1)";
     viewBtns[i].addEventListener("mouseover", function() {
   if (cards[i].style.transform === "scale(1)") {
     cards[i].querySelector('.card-text').textContent = '';
@@ -63,8 +64,11 @@ function mouseover(){
 }
 
 function wtf(){
-  document.querySelector('btn btn-secondary my-2').addEventListener("click", function() {
-    
+  var first_card = document.querySelector(".card:first-of-type");
+  var last_card = document.querySelectorAll('.card')[document.querySelectorAll('.card').length - 1];
+  document.querySelector('main .btn-secondary').addEventListener("click", function() {
+    var parentDiv = first_card.parentNode
+    parentDiv.insertBefore(last_card, first_card)
   });
 }
 
