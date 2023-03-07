@@ -47,12 +47,25 @@ function remove_bootstrap(){
 }
 
 function mouseover(){
-    for (let i = 0; i < 6; i++) {
-      var card = document.querySelectorAll('.col-md-4')[i];
-      card.addEventListener("mouseover", function() {
-        card.querySelector('.card-text').remove();
-      });
-    };
+  var viewBtns = document.getElementsByClassName("btn btn-sm btn-success");
+  var cards = document.querySelectorAll(".card");
+  for (let i = 0; i < viewBtns.length; i++) {
+    viewBtns[i].addEventListener("mouseover", function() {
+  if (cards[i].style.transform === "scale(1)") {
+    cards[i].querySelector('.card-text').textContent = '';
+    cards[i].style.transform = "scale(0.2)";
+  } else {
+    cards[i].querySelector('.card-text').textContent = 'test';
+    cards[i].style.transform = "scale(1)";
+  }
+});
+};
+}
+
+function wtf(){
+  document.querySelector('btn btn-secondary my-2').addEventListener("click", function() {
+    
+  });
 }
 
 
@@ -64,3 +77,4 @@ edit_card_red()
 edit_card_green()
 remove_bootstrap()
 mouseover()
+wtf()
